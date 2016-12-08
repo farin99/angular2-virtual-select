@@ -8,6 +8,10 @@
     "watch": "tsc -p src -w",
     "build": "rm -rf lib && tsc -p src"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/farin99/sh-select"
+  }
   "keywords": [
     "angular2",
     "select",
