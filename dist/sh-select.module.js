@@ -17,6 +17,12 @@ var sh_slelect_component_1 = require("./sh-slelect.component");
 var ShSelectModule = (function () {
     function ShSelectModule() {
     }
+    ShSelectModule.forRoot = function () {
+        return {
+            ngModule: ShSelectModule,
+            providers: []
+        };
+    };
     ShSelectModule = __decorate([
         core_1.NgModule({
             imports: [
