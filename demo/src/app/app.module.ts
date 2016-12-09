@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {ShSelectModule} from "../../../src/sh-select.module";
+import {ShSelectModule} from "../../../src/index";
 
 @NgModule({
   declarations: [
