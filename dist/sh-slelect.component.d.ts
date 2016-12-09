@@ -1,0 +1,38 @@
+import { OnInit, ElementRef, Renderer, EventEmitter } from '@angular/core';
+import { ControlValueAccessor } from "@angular/forms";
+export declare class ShSelectComponent implements ControlValueAccessor, OnInit {
+    private element;
+    private renderer;
+    rows: any[];
+    _options: any[];
+    isOpen: boolean;
+    filter: string;
+    filteredData: any[];
+    placeholder: string;
+    isMultiselect: boolean;
+    mode: "default" | "inline";
+    showClear: boolean;
+    inputFilter: ElementRef;
+    options: any[];
+    _selectedValues: any[];
+    selectedValues: any[];
+    onHide: EventEmitter<any[]>;
+    onShow: EventEmitter<any[]>;
+    onClear: EventEmitter<any[]>;
+    constructor(element: ElementRef, renderer: Renderer);
+    onDocumentClick(event: any): void;
+    updateRows(val: any[]): void;
+    updateFilter(filter: any): void;
+    writeValue(value: any): void;
+    propagateChange: (_: any) => void;
+    registerOnChange(fn: any): void;
+    registerOnTouched(): void;
+    toggleSelected(item: any): void;
+    selectSingle(item: any): void;
+    selectMultiple(item: any): void;
+    focusFilter(): void;
+    show(): void;
+    hide(): void;
+    clear(): void;
+    ngOnInit(): void;
+}
