@@ -128,11 +128,6 @@ input[type="text"] { outline: none; }
     ]
 })
 export class ShSelectComponent implements ControlValueAccessor, OnInit {
-    rows:any[] =[];
-    _options:any[] = [];
-    isOpen:boolean;
-    filter:string;
-    filteredData:any[] = [];
     @Input() placeholder:string = "Type to filter";
     @Input() isMultiselect:boolean = false;
     @Input() mode:"default" | "inline" = "default";
@@ -145,7 +140,15 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
     get options():any[]{
         return this._options;
     }
+    @Output() onHide:EventEmitter<any[]> = new EventEmitter<any[]>();
+    @Output() onShow:EventEmitter<any[]> = new EventEmitter<any[]>();
+    @Output() onClear:EventEmitter<any[]> = new EventEmitter<any[]>();
 
+    rows:any[] =[];
+    _options:any[] = [];
+    isOpen:boolean;
+    filter:string;
+    filteredData:any[] = [];
     _selectedValues:any[] =[];
     get selectedValues():any[]{
         return this._selectedValues;
@@ -156,22 +159,21 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
         this._selectedValues = val;
     }
 
-    @Output() onHide:EventEmitter<any[]> = new EventEmitter<any[]>();
-    @Output() onShow:EventEmitter<any[]> = new EventEmitter<any[]>();
-    @Output() onClear:EventEmitter<any[]> = new EventEmitter<any[]>();
-
-
     constructor(private element:ElementRef,
                 private renderer: Renderer) {
     }
 
+    /**
+     * on click outside the view close the menu
+     * @param event
+     */
     onDocumentClick(event) {
         if (this.isOpen && !this.element.nativeElement.contains(event.target))
             this.hide();
     }
 
-    updateRows(val:any[]){
-        if(!val) val = [];
+
+    updateRows(val:any[] =[]){
         this.rows = val;
     }
 
@@ -181,19 +183,6 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
         !lowercaseFilter || (item.name || item).toLowerCase().indexOf(lowercaseFilter) !== -1);
         this.updateRows(this.filteredData);
     }
-
-    writeValue(value: any) {
-        this.selectedValues = value;
-    }
-
-    propagateChange = (_: any) => {};
-
-    registerOnChange(fn) {
-        this.propagateChange = fn;
-    }
-
-    registerOnTouched() {}
-
 
     toggleSelected(item){
         if(!item) return;
@@ -249,4 +238,18 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
 
     ngOnInit() {
     }
+
+    //////// ControlValueAccessor imp //////////
+
+    writeValue(value: any) {
+        this.selectedValues = value;
+    }
+
+    propagateChange = (_: any) => {};
+
+    registerOnChange(fn) {
+        this.propagateChange = fn;
+    }
+
+    registerOnTouched() {}
 }

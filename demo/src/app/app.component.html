@@ -1,3 +1,14 @@
-<h1>
-  <sh-select [options]="['aaaa','bbbb']"></sh-select>
-</h1>
+
+<h3>
+  string array single select
+</h3>
+<sh-select [options]="stringOptions"></sh-select>
+<h4>Selected string object</h4>
+{{stringOptions[0]}}
+<h3>
+  objects array single select
+</h3>
+<sh-select [options]="objectsOptions" [(ngModel)]="selectedObjects"></sh-select>
+<h4>Selected object</h4>
+<h4>name: {{selectedObjects[0]?.name}}</h4>
+<h4>id: {{selectedObjects[0]?.id}}</h4>
