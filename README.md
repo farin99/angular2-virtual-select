@@ -1,10 +1,10 @@
 # angular2-virtual-select
 A native angular 2 select and multi select component with virtual scrolling to allow thousands of options in one select component
 
-# install
+# Install
 npm install --save angular2-virtual-select
 
-# import module
+# Import module
 ```javascript
 import {ShSelectModule} from "angular2-virtual-select";
 @NgModule({
@@ -14,12 +14,21 @@ import {ShSelectModule} from "angular2-virtual-select";
   ]
 })
 ```
-# use component
+# Use component
 ```html
-<sh-select [options]="['aaaa','bbbb']"></sh-select>  
+<sh-select [options]="['aaaa','bbbb']"
+           [(ngModel)]="selectedItems"></sh-select>  
 ```
 
-# use with object - like key val
+# Use with objects
 ```html
-<sh-select [options]="[{name:'aaa',foo:'foo'},{name:'bbb',foo:'foo'}]"></sh-select>  
+<sh-select [options]="[{name:'aaa',foo:'foo'},{name:'bbb',foo:'foo'}]"
+           [(ngModel)]="selectedItems"></sh-select>  
+```
+
+# Multi select
+```html
+<sh-select [options]="[{name:'aaa',foo:'foo'},{name:'bbb',foo:'foo'}]"
+           [isMultiselect]="true"
+           [(ngModel)]="selectedItems"></sh-select>  
 ```
