@@ -1,0 +1,11 @@
+<h3>String array single select</h3>
+<sh-select [options]="options"
+           [placeholder]="'Select item'"
+           [(ngModel)]="selectedItems"></sh-select>
+
+<div class="selectedContainer">Your favorite inventor is <span class="selected">{{selectedItems[0]}}</span></div>
+
+<div>Html</div>
+<section [innerHTML]="htmlCode" highlight-js-content=".highlight"></section>
+<div>Typescript</div>
+<section [innerHTML]="typescriptCode" highlight-js-content=".highlight"></section>

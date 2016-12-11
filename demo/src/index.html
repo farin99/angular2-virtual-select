@@ -4,9 +4,40 @@
   <meta charset="utf-8">
   <title>ShSelectDemo</title>
   <base href="/">
+  <style>
+    *{
+      font-family: Helvetica,Arial;
+    }
 
+    html,body{
+      padding: 0 !important;
+      margin: 0 !important;
+      background-color: #f1f1f1;
+    }
+    .container{
+      max-width: 1100px;
+      background-color: white;
+      padding: 10px;
+      margin: auto;
+    }
+    section{
+      padding: 0;
+      margin: -10px -10px;
+    }
+
+    .selectedContainer{
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+    .selectedContainer .selected{
+      color: #66d9ef;
+    }
+  </style>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/styles/monokai_sublime.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.5.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/typescript.min.js"></script>
 </head>
 <body>
   <app-root>Loading...</app-root>

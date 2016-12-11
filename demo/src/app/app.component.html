@@ -1,14 +1,11 @@
+<div class="banner" style="text-align: center;background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);padding: 100px 0;color: white;margin-bottom: 20px">
+  <a href="https://github.com/farin99/angular2-virtual-select"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+  <h1 style="margin-top: 0 !important;">Native angular2 multi select</h1>
+  <sh-select [options]="['Single select','Multi select','Objects selection','Virtual Scroll']" style="text-align: left;max-width: 600px;margin: auto"
+             [placeholder]="'Main Features'"></sh-select>
+</div>
 
-<h3>
-  string array single select
-</h3>
-<sh-select [options]="stringOptions"></sh-select>
-<h4>Selected string object</h4>
-{{stringOptions[0]}}
-<h3>
-  objects array single select
-</h3>
-<sh-select [options]="objectsOptions" [(ngModel)]="selectedObjects"></sh-select>
-<h4>Selected object</h4>
-<h4>name: {{selectedObjects[0]?.name}}</h4>
-<h4>id: {{selectedObjects[0]?.id}}</h4>
+<div class="container">
+<single-select-sample></single-select-sample>
+<single-select-objects-sample></single-select-objects-sample>
+</div>
