@@ -1,8 +1,12 @@
 # angular2-virtual-select
-A native angular 2 select and multi select component with virtual scrolling to allow thousands of options in one select component. <a href="http://angular2-virtual-select.s3-website-us-east-1.amazonaws.com/">Live Demo</a>
+A native angular 2 select and multi select component with virtual scrolling to allow thousands of options in one select component.
 
 # Install
 npm install --save angular2-virtual-select
+
+## Demo 
+
+[See Demo Here](http://angular2-virtual-select.s3-website-us-east-1.amazonaws.com)
 
 # Import module
 ```javascript
