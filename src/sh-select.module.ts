@@ -1,13 +1,13 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
-import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
 import {VirtualScrollModule} from "angular2-virtual-scroll";
 import {ShSelectMenuComponent} from "./sh-select-menu.component";
 import {ShSelectComponent} from "./sh-slelect.component";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
     imports: [
-        BrowserModule,
+        CommonModule,
         FormsModule,
         VirtualScrollModule
     ],
