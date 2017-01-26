@@ -242,7 +242,7 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
     }
 
     clear(){
-        this._selectedValues.splice(0, this.rows.length);
+        this.selectedValues = [];
         this.propagateChange(this._selectedValues);
         this.onClear.emit();
     }
