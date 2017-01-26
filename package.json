@@ -38,6 +38,6 @@
     "build": "tsc -p src",
     "clean": "rm -rf dist",
     "test-deploy": "npm run clean && npm run build",
-    "deploy": "npm run clean && npm run build && npm publish || npm publish"
+    "p": "rm -rf dist;tsc -p src; npm version patch; npm publish"
   }
 }
