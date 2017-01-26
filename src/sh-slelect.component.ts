@@ -108,6 +108,17 @@ input[type="text"] { outline: none; }
     display: none;
 }
 
+i.close.icon.clear::after {     
+    content: "✕";
+    padding-right: 8px;
+    font-weight: 800;
+    color: gray; 
+}
+
+i.close.icon.clear:hover::after {
+    color: red; 
+}
+
 .clear{
     position: absolute;
     right: 2px;
