@@ -6,7 +6,7 @@ npm install --save angular2-virtual-select
 
 ## Demo 
 
-[See Demo Here](http://angular2-virtual-select.s3-website-us-east-1.amazonaws.com)
+[See Demo Here](https://farin99.github.io//demos/)
 
 # Import module
 ```javascript

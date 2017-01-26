@@ -1,6 +1,6 @@
 import {NgModule, ModuleWithProviders} from '@angular/core';
 import {FormsModule} from "@angular/forms";
-import {VirtualScrollModule} from "angular2-virtual-scroll";
+import {VirtualScrollModule} from "./virtual-scroll";
 import {ShSelectMenuComponent} from "./sh-select-menu.component";
 import {ShSelectComponent} from "./sh-slelect.component";
 import {CommonModule} from "@angular/common";
@@ -18,10 +18,4 @@ import {CommonModule} from "@angular/common";
     exports: [ShSelectComponent]
 })
 export class ShSelectModule {
-    static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: ShSelectModule,
-            providers: []
-        };
-    }
 }

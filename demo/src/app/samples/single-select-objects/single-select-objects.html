@@ -6,6 +6,10 @@
 <div class="selectedContainer">Your favorite inventor is <span class="selected">{{selectedObjects[0] | json}}</span></div>
 
 <div>Html</div>
-<section [innerHTML]="htmlCode" highlight-js-content=".highlight"></section>
+<div class="negative-margin">
+    <sh-code-viewer [code]="htmlCode" [language]="'html'"></sh-code-viewer>
+</div>
 <div>Typescript</div>
-<section [innerHTML]="typescriptCode" highlight-js-content=".highlight"></section>
+<div class="negative-margin">
+    <sh-code-viewer [code]="typescriptCode" [language]="'typescript'"></sh-code-viewer>
+</div>

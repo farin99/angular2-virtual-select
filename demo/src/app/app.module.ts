@@ -4,10 +4,10 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import {AppComponent} from './app.component';
-import {ShSelectModule} from "../../../src/index";
-import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 import {SingleSelectComponent} from "./samples/single-select/single-select";
 import {SingleSelectObjectsComponent} from "./samples/single-select-objects/single-select-objects";
+import {ShCodeViewer} from "../code-viewer/code-viewer.module";
+import {ShSelectModule} from "../../../src";
 
 @NgModule({
   declarations: [
@@ -21,9 +21,8 @@ import {SingleSelectObjectsComponent} from "./samples/single-select-objects/sing
     ReactiveFormsModule,
     HttpModule,
     ShSelectModule,
-    HighlightJsModule
+    ShCodeViewer
   ],
-  providers: [HighlightJsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

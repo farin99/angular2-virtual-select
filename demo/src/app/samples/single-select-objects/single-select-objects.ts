@@ -10,17 +10,12 @@ export class SingleSelectObjectsComponent {
         .map((name,index) => ({name:name,key:index}));
     selectedObjects =[];
     htmlCode:string = `
-<pre>
-  <code class="html highlight">
   &lt;sh-select [options]=&quot;options&quot;
                 [placeholder]=&quot;'Select item'&quot;
                 [(ngModel)]=&quot;selectedObjects&quot;&gt;&lt;/sh-select&gt;
-  </code>
-</pre>`
+`
 
     typescriptCode:string =`
-<pre>
-  <code class="typescript highlight">
     @Component({
         selector: 'single-select-object-sample',
         templateUrl:'single-select-object.html'
@@ -31,8 +26,6 @@ export class SingleSelectObjectsComponent {
             .map((name,index) => ({name:name,key:index}));
         selectedObjects =[];
     }
-  </code>
-</pre>
 `
 
 
