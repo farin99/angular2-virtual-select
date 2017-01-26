@@ -31,7 +31,7 @@ export interface ChangeEvent {
     `,
     styles: [`
         :host {
-            overflow: hidden;
+            overflow: auto;
             overflow-y: auto;
             position: relative;
             -webkit-overflow-scrolling: touch;

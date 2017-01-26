@@ -38,6 +38,7 @@ import {VirtualScrollComponent} from "./virtual-scroll";
 .item{
   padding: 4px;
   cursor: pointer;
+  white-space: nowrap;
 }
 .item:hover{
   background-color: #efefef;
