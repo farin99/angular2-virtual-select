@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 export class SingleSelectComponent {
     options:string[] = ['Leonardo Da Vinci','Galileo','Sir Isaac Newton','Thomas Savery','Benjamin Franklin','Steve Jobs','Alan Turing','Nikola Tesla'];
     selectedItems =[];
-    options2500 =[]
     htmlCode:string = `
   &lt;sh-select [options]=&quot;options&quot;
                 [placeholder]=&quot;'Select item'&quot;
@@ -26,9 +25,6 @@ export class SingleSelectComponent {
     }
 `
     constructor(){
-        for(let i=0;i<2500;i++){
-            this.options2500.push("very long item BBBDSD fsd fds fsdf ds fsdfdsfsdfdsfdsfsd" + i);
-        }
     }
 
 }
