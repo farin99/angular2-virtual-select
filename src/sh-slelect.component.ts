@@ -9,7 +9,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @ Component({
     selector: 'sh-select',
-    template:`<div class="header" [class.inline]="mode==='inline'"
+    template:`<div class="header" [class.sh-select-disabled]="disabled" [class.inline]="mode==='inline'"
      (click)="show()" [class.open]="isOpen">
     <input type="text"
            #inputFilter
@@ -126,9 +126,16 @@ i.close.icon.clear:hover::after {
     padding-right: 2px;
     top:3px;
     cursor: pointer;
-}`],
+}
+.sh-select-disabled{
+    background-color: #e3e3e3;
+    color: darkgray;
+    cursor: not-allowed;
+}
+
+`],
     host: {
-        '(window:mouseup)': 'onDocumentClick($event)',
+        '(window:mouseup)': 'onDocumentClick($event)'
     },
     providers: [
         {
@@ -143,6 +150,7 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
     @Input() isMultiselect:boolean = false;
     @Input() mode:"default" | "inline" = "default";
     @Input() showClear:boolean = true;
+    @Input() disabled:boolean;
     @ViewChild('inputFilter') inputFilter:ElementRef;
     @Input() set options(val:any[]){
         this._options = val;
@@ -229,7 +237,7 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
     }
 
     show(){
-        if(this.isOpen) return;
+        if(this.isOpen || this.disabled) return;
 
         this.isOpen = true;
         this.focusFilter();
@@ -242,6 +250,8 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
     }
 
     clear(){
+        if(this.disabled) return;
+
         this.selectedValues = [];
         this.propagateChange(this._selectedValues);
         this.onClear.emit();
