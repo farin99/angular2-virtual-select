@@ -1,6 +1,6 @@
 {
   "name": "angular2-virtual-select",
-  "version": "1.1.8",
+  "version": "1.1.10",
   "description": "A native angular 2 select and multi select component with virtual scrolling to allow thousands of options in one select component",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,7 +35,6 @@
   "peerDependencies": {
     "@angular/core": "^2.0.0",
     "@angular/common": "^2.0.0",
-    "@angular/http": "^2.0.0",
     "@angular/forms": "^2.0.0"
   },
   "scripts": {
