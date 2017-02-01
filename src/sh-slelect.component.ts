@@ -30,7 +30,7 @@ import {filter} from "rxjs/operator/filter";
     </div>
     <i class="close icon clear"
        *ngIf="showClear && selectedValues.length > 0"
-       (click)="clear()"></i>
+       (click)="clear(); $event.stopPropagation()"></i>
 </div>
 <sh-select-menu [isOpen]="isOpen"
                 [rows]="rows"
