@@ -6,6 +6,7 @@ import {
     EventEmitter
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {filter} from "rxjs/operator/filter";
 
 @ Component({
     selector: 'sh-select',
@@ -16,7 +17,7 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
            [hidden]="!isOpen"
            (click)="show()"
            [placeholder]="placeholder"
-           [ngModel]="filter"
+           [(ngModel)]="filter"
            (ngModelChange)="updateFilter($event)">
     <div (click)="show(); $event.stopPropagation()"
 
@@ -191,7 +192,6 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
             this.hide();
     }
 
-
     updateRows(val:any[] =[]){
         this.rows = val;
     }
@@ -203,8 +203,16 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
         this.updateRows(this.filteredData);
     }
 
+    clearFilter(){
+        if(this.filter === "") return;
+
+        this.filter = "";
+        this.updateFilter(this.filter);
+    }
+
     toggleSelected(item){
         if(!item) return;
+        this.clearFilter();
 
         if(this.isMultiselect)
             this.selectMultiple(item);
@@ -246,6 +254,7 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
 
     hide(){
         this.isOpen = false;
+        this.clearFilter();
         this.onHide.emit();
     }
 
