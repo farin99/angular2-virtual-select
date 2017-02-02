@@ -41,10 +41,9 @@
     "@angular/forms": "^2.0.0"
   },
   "scripts": {
-    "build": "tsc -p src",
     "clean": "rm -rf dist",
-    "test-deploy": "npm run clean && npm run build",
-    "p": "rm -rf dist;tsc -p src; npm version patch; npm publish",
-    "aot":"node_modules/.bin/ngc -p src/tsconfig-aot.json"
+    "aot":"node_modules/.bin/ngc -p src/tsconfig-aot.json",
+    "build": "npm run clean && npm run aot",
+    "p": "npm run build; npm version patch; npm publish"
   }
 }
