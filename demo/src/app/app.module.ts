@@ -20,7 +20,7 @@ import {ShSelectModule} from "../../../src";
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    ShSelectModule,
+    ShSelectModule.forRoot(),
     ShCodeViewer
   ],
   bootstrap: [AppComponent]

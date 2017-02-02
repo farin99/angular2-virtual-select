@@ -18,4 +18,9 @@ import {CommonModule} from "@angular/common";
     exports: [ShSelectComponent]
 })
 export class ShSelectModule {
+    static forRoot(): ModuleWithProviders {
+        return {
+            ngModule: ShSelectModule
+        };
+    }
 }
