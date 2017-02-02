@@ -17,10 +17,12 @@ import {CommonModule} from "@angular/common";
     ],
     exports: [ShSelectComponent]
 })
+export class ShSelectRootModule { }
+
 export class ShSelectModule {
     static forRoot(): ModuleWithProviders {
         return {
-            ngModule: ShSelectModule
+            ngModule: ShSelectRootModule
         };
     }
 }

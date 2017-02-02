@@ -2,8 +2,9 @@
   "name": "angular2-virtual-select",
   "version": "1.1.12",
   "description": "A native angular 2 select and multi select component with virtual scrolling to allow thousands of options in one select component",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/farin99/angular2-virtual-select"
@@ -27,6 +28,8 @@
     "@angular/http": "^2.3.1",
     "@angular/platform-browser": "^2.3.1",
     "@angular/platform-browser-dynamic": "^2.3.1",
+    "@angular/compiler-cli": "^2.4.5",
+    "@angular/platform-server": "^2.4.5",
     "core-js": "^2.4.1",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
@@ -41,6 +44,7 @@
     "build": "tsc -p src",
     "clean": "rm -rf dist",
     "test-deploy": "npm run clean && npm run build",
-    "p": "rm -rf dist;tsc -p src; npm version patch; npm publish"
+    "p": "rm -rf dist;tsc -p src; npm version patch; npm publish",
+    "aot":"node_modules/.bin/ngc -p src/tsconfig-aot.json"
   }
 }

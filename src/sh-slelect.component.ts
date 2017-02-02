@@ -141,7 +141,7 @@ i.close.icon.clear:hover::after {
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(ShSelectProvider),
+            useExisting: ShSelectProvider(),
             multi: true
         }
     ]
@@ -284,6 +284,6 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
     registerOnTouched() {}
 }
 
-export function ShSelectProvider(){
-    return ShSelectComponent;
+export function ShSelectProvider():any{
+    return forwardRef(() =>ShSelectComponent);
 }
