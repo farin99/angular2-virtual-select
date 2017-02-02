@@ -14,7 +14,7 @@ import {ShSelectModule} from "angular2-virtual-select";
 @NgModule({
   imports: [
     BrowserModule,
-    ShSelectModule,
+    ShSelectModule.forRoot()
   ]
 })
 ```
