@@ -176,6 +176,10 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
 
     set selectedValues(val:any[]){
         if(!val) val =[];
+
+        if(!Array.isArray(val))
+            val = [val];
+
         this._selectedValues = val;
     }
 
