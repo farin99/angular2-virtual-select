@@ -147,7 +147,7 @@ i.close.icon.clear:hover::after {
 export class ShSelectComponent implements ControlValueAccessor, OnInit {
     @Input() placeholder:string = "Type to filter";
     @Input() isMultiselect:boolean = false;
-    @Input() showRawOption:boolean = false;
+    @Input() rawOptionGenerator:Function = null;
     @Input() mode:"default" | "inline" = "default";
     @Input() showClear:boolean = true;
     @Input() disabled:boolean;
@@ -203,8 +203,9 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
         const lowercaseFilter = filter.toLocaleLowerCase();
         this.filteredData = this._options.filter(item =>
             !lowercaseFilter || (item.name || item).toLowerCase().indexOf(lowercaseFilter) !== -1);
-        if (this.showRawOption) {
-            this.filteredData.unshift({raw: true, name: filter});
+        if (!this.isMultiselect && this.rawOptionGenerator) {
+            const rawOption = this.rawOptionGenerator(filter);
+            if (rawOption) this.filteredData.unshift(rawOption);
         }
         this.updateRows(this.filteredData);
     }
