@@ -224,7 +224,7 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
             this.selectSingle(item)
         }
 
-        this.propagateChange(this._selectedValues);
+        this.onChange();
     }
 
     selectSingle(item){
@@ -266,8 +266,21 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
         if(this.disabled) return;
 
         this.selectedValues = [];
-        this.propagateChange(this._selectedValues);
+        this.onChange()
         this.onClear.emit();
+    }
+
+    onChange(){
+        if(this.isMultiselect){
+            this.propagateChange(this._selectedValues);
+        }
+        else{
+            let newValue: string = '';
+            if(this.selectedValues.length > 0) {
+                newValue = this.selectedValues[0];
+            }
+            this.propagateChange(newValue);
+        }
     }
 
     ngOnInit() {
