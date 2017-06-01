@@ -2,7 +2,7 @@ import {NgModule, ModuleWithProviders} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {VirtualScrollModule} from "./virtual-scroll";
 import {ShSelectMenuComponent} from "./sh-select-menu.component";
-import {ShSelectComponent} from "./sh-slelect.component";
+import {ShSelectComponent} from "./sh-select.component";
 import {CommonModule} from "@angular/common";
 
 @NgModule({

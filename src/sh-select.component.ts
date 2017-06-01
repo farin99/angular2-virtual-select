@@ -22,10 +22,8 @@ import {filter} from "rxjs/operator/filter";
     <div (click)="show(); $event.stopPropagation()"
 
          *ngIf="!isOpen">
-        {{selectedValues?.length ?
-        (isMultiselect ?
-        selectedValues?.length + ' Selected'
-        : (selectedValues[0].name || selectedValues))
+        {{selectedValues?.length 
+        ? (isMultiselect ? selectedValues?.length + ' Selected' : (selectedValues[0].name || selectedValues))
         : placeholder}}
     </div>
     <i class="close icon clear"
@@ -149,6 +147,7 @@ i.close.icon.clear:hover::after {
 export class ShSelectComponent implements ControlValueAccessor, OnInit {
     @Input() placeholder:string = "Type to filter";
     @Input() isMultiselect:boolean = false;
+    @Input() rawOptionGenerator:Function = null;
     @Input() mode:"default" | "inline" = "default";
     @Input() showClear:boolean = true;
     @Input() disabled:boolean;
@@ -203,7 +202,11 @@ export class ShSelectComponent implements ControlValueAccessor, OnInit {
     updateFilter(filter){
         const lowercaseFilter = filter.toLocaleLowerCase();
         this.filteredData = this._options.filter(item =>
-        !lowercaseFilter || (item.name || item).toLowerCase().indexOf(lowercaseFilter) !== -1);
+            !lowercaseFilter || (item.name || item).toLowerCase().indexOf(lowercaseFilter) !== -1);
+        if (!this.isMultiselect && this.rawOptionGenerator) {
+            const rawOption = this.rawOptionGenerator(filter);
+            if (rawOption) this.filteredData.unshift(rawOption);
+        }
         this.updateRows(this.filteredData);
     }
 
